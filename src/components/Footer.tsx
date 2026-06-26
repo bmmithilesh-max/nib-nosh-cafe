@@ -97,9 +97,15 @@ export default function Footer({ onNavigate }: FooterProps) {
       </div>
 
       <div className="border-t border-blue-800 py-4">
-        <p className="text-center text-blue-400 text-xs">
-          &copy; {new Date().getFullYear()} Nib & Nosh Cafe. All rights reserved.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+          <p className="text-center text-blue-400 text-xs">
+            &copy; {new Date().getFullYear()} Nib & Nosh Cafe. All rights reserved.
+          </p>
+          <span className="hidden sm:block text-blue-700 text-xs">|</span>
+          <p className="text-center text-blue-400 text-xs">
+            Built by <span className="text-white font-semibold">Artinu</span>
+          </p>
+        </div>
       </div>
     </footer>
   );
