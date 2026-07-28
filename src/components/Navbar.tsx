@@ -43,6 +43,9 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               <span className="font-serif text-lg font-bold text-blue-800 block">Nib & Nosh</span>
               <span className="text-[10px] text-blue-500 tracking-widest uppercase font-medium">Eat. Drink. Play.</span>
             </div>
+            <span className="hidden xl:block ml-4 pl-4 border-l border-blue-100 text-xs font-medium text-blue-400 tracking-wide">
+              Good Food, Good Vibes, Great Time
+            </span>
           </button>
 
           <ul className="hidden lg:flex items-center gap-1">

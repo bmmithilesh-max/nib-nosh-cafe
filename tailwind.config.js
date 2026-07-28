@@ -5,16 +5,16 @@ export default {
     extend: {
       colors: {
         blue: {
-          50: '#EEF5FD',
-          100: '#D9E9FA',
-          200: '#B3D2F5',
-          300: '#7DB4EC',
-          400: '#4A90E2',
-          500: '#1E6FD9',
-          600: '#1558B0',
-          700: '#0C3B82',
-          800: '#082A60',
-          900: '#051840',
+          50: '#EAF8FF',
+          100: '#D3F0FF',
+          200: '#A8E2FF',
+          300: '#6FCFFF',
+          400: '#3DBDFF',
+          500: '#00ADEF',
+          600: '#0090C7',
+          700: '#00719D',
+          800: '#045577',
+          900: '#0A3B54',
         },
         cream: {
           50: '#FDFCF8',
@@ -28,8 +28,8 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

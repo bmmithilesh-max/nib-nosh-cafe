@@ -8,13 +8,13 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
     background-color: #FDFCF8;
     color: #1A2540;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
   }
 }
 

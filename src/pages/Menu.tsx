@@ -180,7 +180,7 @@ export default function Menu() {
           <p className="text-blue-300 text-sm font-medium uppercase tracking-widest mb-2">Nib & Nosh</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-3">Our Menu</h1>
           <p className="text-blue-200 max-w-md mx-auto text-sm px-4">
-            All vegetarian · Made fresh daily · Prices inclusive of taxes
+            All vegetarian · Made fresh daily
           </p>
         </div>
       </div>

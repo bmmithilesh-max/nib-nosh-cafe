@@ -81,14 +81,14 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <Clock className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
                 <div className="text-sm">
                   <p className="text-blue-200">Mon – Fri</p>
-                  <p className="text-white font-medium">11:00 AM – 10:30 PM</p>
+                  <p className="text-white font-medium">12:00 PM – 10:00 PM</p>
                 </div>
               </li>
               <li className="flex items-start gap-3 mt-3">
                 <Clock className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
                 <div className="text-sm">
                   <p className="text-blue-200">Sat – Sun</p>
-                  <p className="text-white font-medium">10:00 AM – 11:00 PM</p>
+                  <p className="text-white font-medium">12:00 PM – 10:00 PM</p>
                 </div>
               </li>
             </ul>

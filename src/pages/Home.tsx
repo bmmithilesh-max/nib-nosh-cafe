@@ -1,4 +1,4 @@
-import { ArrowRight, Star, Music, Calendar, Utensils, Coffee, IceCream, ChevronRight } from 'lucide-react';
+import { ArrowRight, Star, Music, Calendar, Utensils, Coffee, Gamepad2, ChevronRight } from 'lucide-react';
 import type { Page } from '../types';
 
 interface HomeProps {
@@ -12,9 +12,9 @@ const highlights = [
     desc: 'Wraps, burgers, pasta, and waffles made with love and the freshest ingredients.',
   },
   {
-    icon: IceCream,
-    title: 'Make Your Soft Serve',
-    desc: 'Customise your ice-cream with sauces and toppings – your creation, your way.',
+    icon: Gamepad2,
+    title: 'Board Games',
+    desc: 'Grab a table and dive into our collection of board games with friends and family.',
   },
   {
     icon: Music,
@@ -97,7 +97,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </div>
             <div>
               <p className="font-semibold text-blue-900 text-sm">Open Daily</p>
-              <p className="text-gray-500 text-xs">11 AM – 10:30 PM</p>
+              <p className="text-gray-500 text-xs">12 PM – 10 PM</p>
             </div>
           </div>
         </div>

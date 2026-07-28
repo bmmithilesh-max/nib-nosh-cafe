@@ -64,11 +64,11 @@ export default function Location() {
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between gap-8">
                   <span className="text-gray-500">Monday – Friday</span>
-                  <span className="text-gray-800 font-medium">11:00 AM – 10:30 PM</span>
+                  <span className="text-gray-800 font-medium">12:00 PM – 10:00 PM</span>
                 </div>
                 <div className="flex justify-between gap-8">
                   <span className="text-gray-500">Saturday – Sunday</span>
-                  <span className="text-gray-800 font-medium">10:00 AM – 11:00 PM</span>
+                  <span className="text-gray-800 font-medium">12:00 PM – 10:00 PM</span>
                 </div>
               </div>
             </div>
