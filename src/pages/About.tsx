@@ -18,7 +18,7 @@ export default function About({ onNavigate }: AboutProps) {
       {/* Hero */}
       <div className="relative h-72 md:h-96 overflow-hidden">
         <img
-          src="/images/unnamed_(4).webp"
+          src="/images/WhatsApp%20Image%202026-07-29%20at%201.12.50%20PM.jpeg"
           alt="Nib & Nosh Cafe interior"
           className="w-full h-full object-cover"
         />
@@ -36,23 +36,29 @@ export default function About({ onNavigate }: AboutProps) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="section-subtitle">Who We Are</p>
+              <p className="section-subtitle">Story</p>
               <h2 className="section-title mb-6">A Cafe Born from Passion</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Nib & Nosh was born out of a simple idea — to create a space where people could truly unwind. Tucked away in the vibrant 2nd Block of Rajajinagar, our cafe offers a unique semi-outdoor experience that feels unlike anything else in Bengaluru.
+                  Nib & Nosh was created with one simple idea—to build a place where people could slow down, connect, and enjoy life's little moments.
                 </p>
                 <p>
-                  Our open-sky glass-roofed courtyard, centred around a majestic old tree, sets the scene for memorable meals, heartfelt conversations, and spontaneous jamming sessions. The blue chairs, warm lights, and the rustling leaves above — every detail is intentional.
+                  We wanted more than just a café. We wanted a space where friends could catch up over coffee, families could spend quality time, colleagues could unwind, and everyone could enjoy great food, fun board games, and meaningful conversations.
                 </p>
                 <p>
-                  We're proud to be 100% vegetarian, with a menu that spans global flavours — from creamy Alfredo pasta and crispy waffles to indulgent ice-cream sundaes and gourmet thick shakes. Our motto is simple: <strong className="text-blue-700">Eat. Drink. Play.</strong>
+                  Every dish we serve and every corner of our café is designed to make you feel welcome, whether you're here for a quick bite, a long chat, a game night, or a peaceful work session.
+                </p>
+                <p>
+                  We believe that good food tastes even better when shared, that the best conversations happen around a table, and that the happiest memories are often the simplest ones.
+                </p>
+                <p>
+                  Today, Nib & Nosh is a place where birthdays are celebrated, friendships grow stronger, families spend quality time together, remote workers find inspiration, and every guest becomes part of our story. So come in, make yourself at home, and create moments worth sharing.
                 </p>
               </div>
             </div>
             <div className="relative">
               <img
-                src="/images/unnamed_(2).webp"
+                src="/images/WhatsApp%20Image%202026-07-29%20at%2012.16.46%20PM.jpeg"
                 alt="Nib & Nosh courtyard"
                 className="rounded-2xl w-full h-80 object-cover shadow-lg"
               />
@@ -98,9 +104,9 @@ export default function About({ onNavigate }: AboutProps) {
             <h2 className="section-title">A Glimpse of Nib & Nosh</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <img src="/images/unnamed_(4).webp" alt="Cafe interior evening" className="rounded-2xl w-full h-64 object-cover" />
-            <img src="/images/unnamed_(2).webp" alt="Outdoor courtyard" className="rounded-2xl w-full h-64 object-cover" />
-            <img src="/images/unnamed_(5).webp" alt="Food at Nib & Nosh" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/WhatsApp%20Image%202026-07-29%20at%201.12.50%20PM.jpeg" alt="Cafe interior evening" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.16.46%20PM.jpeg" alt="Outdoor courtyard" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/unnamed_(2).webp" alt="Food at Nib & Nosh" className="rounded-2xl w-full h-64 object-cover" />
           </div>
         </div>
       </section>

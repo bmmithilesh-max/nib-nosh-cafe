@@ -3,15 +3,23 @@ import { useState } from 'react';
 type Category =
   | 'all'
   | 'wraps'
-  | 'burgers'
-  | 'quick-bites'
+  | 'sandwiches'
+  | 'small-bites'
   | 'fries'
+  | 'burgers'
   | 'pasta'
-  | 'sides'
   | 'waffles'
-  | 'shakes'
-  | 'sundaes'
-  | 'ice-cream';
+  | 'desserts'
+  | 'ice-cream-sundaes'
+  | 'scoops'
+  | 'beverages'
+  | 'mojitos'
+  | 'cold-coffee'
+  | 'iced-coffee'
+  | 'iced-tea'
+  | 'milkshakes'
+  | 'others'
+  | 'hot-coffee';
 
 interface MenuItem {
   name: string;
@@ -27,123 +35,208 @@ interface MenuSection {
   items: MenuItem[];
 }
 
+const beverageCategories: Category[] = ['mojitos', 'cold-coffee', 'iced-coffee', 'iced-tea', 'milkshakes', 'others'];
+
 const menuData: MenuSection[] = [
   {
     id: 'wraps',
     title: 'Wraps',
-    subtitle: 'Fresh lettuce, onion, tomatoes, veg patty, creamy mayo sauce, wrapped in soft tortilla',
-    note: 'Add any Mojito @89 with Burger/Wrap',
     items: [
-      { name: 'Veggie Fiesta', price: 109 },
-      { name: 'Crisp Aloo Wrap', price: 109 },
-      { name: 'Veg + Paneer Wrap', price: 119 },
-      { name: 'Veg Mexican Wrap', price: 119 },
+      { name: 'Veggie Fiesta', price: 119 },
+      { name: 'Crisp Aloo Wrap', price: 119 },
+      { name: 'Veg + Paneer Wrap', price: 129 },
+      { name: 'Veg Mexican Wrap', price: 129 },
       { name: 'Paneer Mexican Wrap', price: 149 },
       { name: 'Cheese Burst Veg Wrap', price: 159 },
+      { name: 'Lebanese Falafel Wrap', price: 149 },
     ],
   },
   {
-    id: 'burgers',
-    title: 'Burgers',
-    subtitle: 'Delicious veg patty made from mixed vegetables, served with lettuce, onion, tomato and our signature mayo sauce in soft bun',
-    note: 'Add any Mojito @89 with Burger/Wrap',
-    items: [
-      { name: 'Veg Burger', price: 99 },
-      { name: 'Veg Cheese Burger', price: 109 },
-      { name: 'Spicy Veg Burger', price: 109 },
-      { name: 'Spicy Paneer Burger', price: 139 },
-    ],
-  },
-  {
-    id: 'quick-bites',
-    title: 'Quick Bites',
+    id: 'sandwiches',
+    title: 'Sandwiches & Buns',
     items: [
       { name: 'Hazelnut Banana Toastie', price: 89 },
-      { name: 'Jalapeno Cheese Sandwich', price: 99 },
-      { name: 'Veggie Delight Sandwich', price: 89 },
-      { name: 'Paneerlicious Sandwich', price: 99 },
-      { name: 'Korean Cheese Bun', price: 89 },
+      { name: 'Veggie Delight Sandwich', price: 109 },
+      { name: 'Paneerilicious Sandwich', price: 129 },
+      { name: 'Korean Cheese Bun', price: 99 },
+    ],
+  },
+  {
+    id: 'small-bites',
+    title: 'Small Bites',
+    items: [
+      { name: 'Cheesy Corn Triangles', price: 99 },
+      { name: 'Cheesy Jalapeno Poppers', price: 99 },
+      { name: 'Chilli Garlic Potato', price: 89 },
+      { name: 'Onion Rings', price: 99 },
+      { name: 'Potato Wedges', price: 99 },
+      { name: 'Veggie Pizza Fingers', price: 109 },
+      { name: 'Lebanese Falafel', price: 119 },
     ],
   },
   {
     id: 'fries',
     title: 'Fries',
-    note: 'Add any Hot coffee @49',
     items: [
-      { name: 'Classic Fries', price: 79 },
-      { name: 'Peri Peri Fries', price: 89 },
-      { name: 'Cheesy Fries', price: 99 },
-      { name: 'Loaded Fries', price: 99 },
-      { name: 'Crinkle Cut Fries', price: 109 },
+      { name: 'Classic Fries', price: 99 },
+      { name: 'Peri Peri Fries', price: 109 },
+      { name: 'Cheesy Fries', price: 119 },
+      { name: 'Loaded Fries', price: 119 },
+    ],
+  },
+  {
+    id: 'burgers',
+    title: 'Burgers',
+    items: [
+      { name: 'Veg Burger', price: 99 },
+      { name: 'Veg Cheese Burger', price: 119 },
+      { name: 'Spicy Veg Burger', price: 119 },
+      { name: 'Spicy Paneer Burger', price: 139 },
     ],
   },
   {
     id: 'pasta',
     title: 'Pasta',
     items: [
-      { name: 'Arrabbiata', price: 139 },
-      { name: 'Creamy Alfredo', price: 139 },
-      { name: 'Spicy Schezwan', price: 149 },
-      { name: 'Tandoori Paneer', price: 149 },
-    ],
-  },
-  {
-    id: 'sides',
-    title: 'Sides',
-    items: [
-      { name: 'Cheesy Corn Triangles', price: 79 },
-      { name: 'Cheese n Jalapeno Poppers', price: 79 },
-      { name: 'Chilli Garlic Potato Shots', price: 79 },
+      { name: 'Creamy Alfredo', price: 169 },
+      { name: 'Arrabbiata', price: 159 },
+      { name: 'Spicy Schezwan', price: 159 },
     ],
   },
   {
     id: 'waffles',
     title: 'Waffles',
-    subtitle: 'Golden, crispy on the outside and fluffy within — served with topping of your choice. A luxurious treat for dessert lovers.',
-    note: 'Add any Hot coffee @49 with Waffle · Add-ons: Sprinkles, Choco Chips, Gems @10 each',
     items: [
-      { name: 'Belgian Chocomelt', price: 109, description: 'Choose milk / white / dark chocolate' },
-      { name: 'Triple Chocomelt', price: 119, description: 'Topped with milk, white & dark chocolate' },
+      { name: 'Belgian Chocomelt', price: 109 },
+      { name: 'Triple Chocomelt', price: 119 },
       { name: 'Nutella Delight', price: 119 },
-      { name: 'Berrylicious', price: 119, description: 'Topped with blueberry and strawberry' },
+      { name: 'Brownie Waffle', price: 119 },
       { name: 'Oreo Overload', price: 119 },
-      { name: 'Kitkat Crunch', price: 129 },
+      { name: 'KitKat Crunch', price: 129 },
       { name: 'Nutty Indulgence', price: 139 },
     ],
   },
   {
-    id: 'shakes',
-    title: 'Gourmet Thick Shakes',
-    note: 'Add any Hot coffee @49 with Waffle',
+    id: 'desserts',
+    title: 'Desserts',
     items: [
-      { name: 'Vanilla Cloud', price: 99 },
-      { name: 'Oreo Avalanche', price: 109 },
-      { name: 'Hazelnut Whirl', price: 119 },
-      { name: 'Kit-Kat Break & Shake', price: 119 },
+      { name: 'Brownie with Vanilla Ice Cream', price: 129 },
+      { name: 'Walnut Brownie', price: 79 },
+      { name: 'Nutella Waffle with Ice Cream', price: 159 },
+      { name: 'Waffle with Banana & Ice Cream', price: 149 },
+      { name: 'Affogato', price: 139 },
     ],
   },
   {
-    id: 'sundaes',
-    title: 'Ice-cream Sundaes & Specials',
+    id: 'ice-cream-sundaes',
+    title: 'Ice Cream Sundaes',
     items: [
-      { name: 'Affogato', price: 139, description: 'Italian dessert served in martini glass with vanilla ice-cream drowned in espresso' },
-      { name: 'Rainbow Fun', price: 129, description: 'Vanilla ice-cream, brownie, gems, sprinkles, strawberry sauce' },
-      { name: 'Sinful Chocolate', price: 139, description: 'Chocolate ice-cream, brownie, choco chips, choco sprinkles, choco sauce' },
-      { name: 'Cookies & Cream', price: 139, description: 'Mixed ice-cream, Oreo cookies, choc sprinkles, brownie, choc sauce' },
-      { name: 'Kit-Kat Special', price: 149, description: 'Mixed ice-cream, Kit-Kat, choc sprinkles, brownie, choco sauce' },
+      { name: 'Triple Treat', price: 149 },
+      { name: 'Cookie Crush', price: 149 },
+      { name: 'Blackcurrant Bliss', price: 149 },
+      { name: 'Vanilla Strawberry Delight', price: 139 },
+      { name: 'Fruity Delight', price: 149 },
+      { name: 'Royal Sundae', price: 149 },
+      { name: 'DBC', price: 159 },
+      { name: 'Banana Split', price: 149 },
+      { name: 'Rainbow Fun', price: 139 },
+      { name: 'Sinful Chocolate', price: 159 },
+      { name: 'Kit-Kat Sundae', price: 159 },
     ],
   },
   {
-    id: 'ice-cream',
-    title: 'Make Your Own Soft Serve',
-    subtitle: 'Pick your ice-cream, add a sauce and a topping for the perfect treat.',
-    note: 'Upgrade to cone +₹10',
+    id: 'scoops',
+    title: 'Scoops',
     items: [
-      { name: 'Vanilla Soft Serve', price: 49 },
-      { name: 'Chocolate Soft Serve', price: 59 },
-      { name: 'Mixed Soft Serve', price: 59 },
-      { name: 'Sauce Add-on (Chocolate / Caramel / Strawberry)', price: 10 },
-      { name: 'Topping Add-on (Sprinkles / Choco Chips / Nuts etc.)', price: 10 },
+      { name: 'Vanilla', price: 59 },
+      { name: 'Chocolate', price: 69 },
+      { name: 'Mango', price: 59 },
+      { name: 'Blackcurrant', price: 69 },
+    ],
+  },
+  {
+    id: 'mojitos',
+    title: 'Mojitos & Coolers',
+    items: [
+      { name: 'Blueberry Boba Shake', price: 139 },
+      { name: 'Lime Mint Breeze', price: 129 },
+      { name: 'Blueberry Lagoon', price: 139 },
+      { name: 'Strawberry Splash', price: 129 },
+      { name: 'Chilli Guava Mojito', price: 139 },
+      { name: 'Blue Curacao Mojito', price: 129 },
+      { name: 'Orange Zest', price: 129 },
+    ],
+  },
+  {
+    id: 'cold-coffee',
+    title: 'Cold Coffee',
+    items: [
+      { name: 'Classic Cold Coffee', price: 109 },
+      { name: 'Hazelnut Cold Coffee', price: 129 },
+      { name: 'Mocha Cold Coffee', price: 119 },
+    ],
+  },
+  {
+    id: 'iced-coffee',
+    title: 'Iced Coffee',
+    items: [
+      { name: 'Iced Cappuccino', price: 109 },
+      { name: 'Iced Latte', price: 109 },
+      { name: 'Iced Americano', price: 99 },
+      { name: 'Iced Mocha', price: 119 },
+      { name: 'Iced Spanish Latte', price: 119 },
+      { name: 'Nutella Iced Coffee', price: 129 },
+      { name: 'Coffee Float', price: 129 },
+      { name: 'Lemon Cold Brew', price: 129 },
+      { name: 'Orange Espresso Tonic', price: 129 },
+      { name: 'Strawberry Mocha Latte', price: 129 },
+    ],
+  },
+  {
+    id: 'iced-tea',
+    title: 'Iced Tea',
+    items: [
+      { name: 'Lemon', price: 109 },
+      { name: 'Green Apple', price: 109 },
+      { name: 'Peach', price: 119 },
+      { name: 'Lychee', price: 119 },
+    ],
+  },
+  {
+    id: 'milkshakes',
+    title: 'Milkshakes',
+    items: [
+      { name: 'Oreo', price: 119 },
+      { name: 'KitKat', price: 129 },
+      { name: 'Hazelnut', price: 129 },
+      { name: 'Chocolate', price: 119 },
+      { name: 'Vanilla', price: 109 },
+    ],
+  },
+  {
+    id: 'others',
+    title: 'Others',
+    items: [
+      { name: 'Lime Soda', price: 99 },
+      { name: 'Coke', price: 89 },
+    ],
+  },
+  {
+    id: 'hot-coffee',
+    title: 'Hot Coffee',
+    items: [
+      { name: 'Cappuccino', price: 79 },
+      { name: 'Latte', price: 79 },
+      { name: 'Flat White', price: 79 },
+      { name: 'Americano', price: 79 },
+      { name: 'Espresso Macchiato', price: 79 },
+      { name: 'Hazelnut Cappuccino', price: 89 },
+      { name: 'Mocha Cappuccino', price: 89 },
+      { name: 'Caramel Cappuccino', price: 89 },
+      { name: 'Hazelnut Latte', price: 89 },
+      { name: 'Mocha Latte', price: 89 },
+      { name: 'Caramel Latte', price: 89 },
+      { name: 'Hot Chocolate', price: 89 },
     ],
   },
 ];
@@ -151,15 +244,17 @@ const menuData: MenuSection[] = [
 const filterTabs: { id: Category; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'wraps', label: 'Wraps' },
-  { id: 'burgers', label: 'Burgers' },
-  { id: 'quick-bites', label: 'Quick Bites' },
+  { id: 'sandwiches', label: 'Sandwiches & Buns' },
+  { id: 'small-bites', label: 'Small Bites' },
   { id: 'fries', label: 'Fries' },
+  { id: 'burgers', label: 'Burgers' },
   { id: 'pasta', label: 'Pasta' },
-  { id: 'sides', label: 'Sides' },
   { id: 'waffles', label: 'Waffles' },
-  { id: 'shakes', label: 'Shakes' },
-  { id: 'sundaes', label: 'Sundaes' },
-  { id: 'ice-cream', label: 'Ice-Cream' },
+  { id: 'desserts', label: 'Desserts' },
+  { id: 'ice-cream-sundaes', label: 'Ice Cream Sundaes' },
+  { id: 'scoops', label: 'Scoops' },
+  { id: 'beverages', label: 'Beverages' },
+  { id: 'hot-coffee', label: 'Hot Coffee' },
 ];
 
 export default function Menu() {
@@ -167,14 +262,16 @@ export default function Menu() {
 
   const visibleSections = activeCategory === 'all'
     ? menuData
-    : menuData.filter((s) => s.id === activeCategory);
+    : activeCategory === 'beverages'
+      ? menuData.filter((s) => beverageCategories.includes(s.id))
+      : menuData.filter((s) => s.id === activeCategory);
 
   return (
     <div className="pt-20 min-h-screen bg-cream-50">
       {/* Header */}
       <div className="bg-blue-800 py-16 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="/images/unnamed_(3).webp" alt="" className="w-full h-full object-cover" />
+          <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.44.35%20PM.jpeg" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="relative">
           <p className="text-blue-300 text-sm font-medium uppercase tracking-widest mb-2">Nib & Nosh</p>
@@ -250,10 +347,7 @@ export default function Menu() {
         {/* Footer note */}
         <div className="mt-10 text-center">
           <p className="text-gray-400 text-sm">
-            All items are 100% vegetarian · We use fresh ingredients daily.
-          </p>
-          <p className="text-gray-400 text-sm mt-1">
-            For custom orders or dietary requirements, please speak to our team.
+            Additional 5% GST
           </p>
         </div>
       </div>
