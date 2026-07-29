@@ -1,17 +1,14 @@
-import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
-import CafeLogo from './CafeLogo';
-import type { Page } from '../types';
+import { Link } from "@tanstack/react-router";
+import { MapPin, Phone, Clock, Instagram } from "lucide-react";
+import CafeLogo from "./CafeLogo";
 
-interface FooterProps {
-  onNavigate: (page: Page) => void;
-}
+const quickLinks = [
+  { label: "Menu", to: "/menu" },
+  { label: "About", to: "/about" },
+  { label: "Location", to: "/location" },
+] as const;
 
-export default function Footer({ onNavigate }: FooterProps) {
-  const nav = (page: Page) => {
-    onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer() {
   return (
     <footer className="bg-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -21,11 +18,14 @@ export default function Footer({ onNavigate }: FooterProps) {
               <CafeLogo size={52} className="shrink-0" />
               <div>
                 <span className="font-serif text-xl font-bold block">Nib & Nosh</span>
-                <span className="text-xs text-blue-300 tracking-widest uppercase">Eat. Drink. Play.</span>
+                <span className="text-xs text-blue-300 tracking-widest uppercase">
+                  Eat. Drink. Play.
+                </span>
               </div>
             </div>
             <p className="text-blue-200 text-sm leading-relaxed">
-              A cozy semi-outdoor cafe in the heart of Rajajinagar, where every visit is a delightful experience.
+              A cozy semi-outdoor cafe in the heart of Rajajinagar, where every visit is a delightful
+              experience.
             </p>
             <a
               href="https://instagram.com/nibnoshcafe"
@@ -41,14 +41,11 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="font-serif text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
-              {(['menu', 'about', 'location'] as Page[]).map((page) => (
-                <li key={page}>
-                  <button
-                    onClick={() => nav(page)}
-                    className="text-blue-200 hover:text-white transition-colors text-sm capitalize"
-                  >
-                    {page.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
-                  </button>
+              {quickLinks.map(({ label, to }) => (
+                <li key={to}>
+                  <Link to={to} className="text-blue-200 hover:text-white transition-colors text-sm">
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -60,14 +57,19 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
                 <span className="text-blue-200 text-sm">
-                  No 59, 13, 19th Main Rd,<br />
-                  2nd Block, Rajajinagar,<br />
+                  No 59, 13, 19th Main Rd,
+                  <br />
+                  2nd Block, Rajajinagar,
+                  <br />
                   Bengaluru, Karnataka 560010
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-blue-400 shrink-0" />
-                <a href="tel:+919876543210" className="text-blue-200 hover:text-white transition-colors text-sm">
+                <a
+                  href="tel:+919876543210"
+                  className="text-blue-200 hover:text-white transition-colors text-sm"
+                >
                   +91 98765 43210
                 </a>
               </li>

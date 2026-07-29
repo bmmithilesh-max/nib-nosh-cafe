@@ -3,7 +3,7 @@ interface CafeLogoProps {
   className?: string;
 }
 
-export default function CafeLogo({ size = 40, className = '' }: CafeLogoProps) {
+export default function CafeLogo({ size = 40, className = "" }: CafeLogoProps) {
   return (
     <img
       src="/images/logo.png"
