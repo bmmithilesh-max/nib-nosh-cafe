@@ -174,9 +174,6 @@ export default function Home({ onNavigate }: HomeProps) {
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-2">
                 Wraps, Burgers, Waffles,<br />Ice-Cream & More
               </h2>
-              <p className="text-blue-200">
-                Add a Mojito with your Burger/Wrap for just ₹89 · Hot Coffee with Waffle for ₹49
-              </p>
             </div>
             <button
               onClick={() => navigate('menu')}
@@ -218,7 +215,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <p className="section-subtitle">Join the Fun</p>
           <h2 className="section-title mb-4">Ready to Visit Nib & Nosh?</h2>
           <p className="text-gray-500 mb-8 max-w-xl mx-auto leading-relaxed">
-            Whether it's a quiet date, a birthday party, or a live music night – we have something special for every occasion.
+            Whether it's a quiet date, a birthday party, or a casual get-together, we have something special for every occasion.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button onClick={() => navigate('menu')} className="btn-primary">

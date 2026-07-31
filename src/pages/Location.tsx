@@ -46,8 +46,8 @@ export default function Location() {
             </div>
             <div>
               <h3 className="font-semibold text-gray-800 mb-1">Phone</h3>
-              <a href="tel:+919876543210" className="text-gray-600 text-sm hover:text-blue-600 transition-colors">
-                +91 98765 43210
+              <a href="tel:+919986088681" className="text-gray-600 text-sm hover:text-blue-600 transition-colors">
+                +91 99860 88681
               </a>
             </div>
           </div>
@@ -84,12 +84,12 @@ export default function Location() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-1">Follow Us</h3>
               <a
-                href="https://instagram.com/nibnoshcafe"
+                href="https://instagram.com/nib_and_nosh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 text-sm hover:text-blue-600 transition-colors"
               >
-                @nibnoshcafe
+                @nib_and_nosh
               </a>
             </div>
           </div>

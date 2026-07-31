@@ -28,13 +28,13 @@ export default function Footer({ onNavigate }: FooterProps) {
               A cozy semi-outdoor cafe in the heart of Rajajinagar, where every visit is a delightful experience.
             </p>
             <a
-              href="https://instagram.com/nibnoshcafe"
+              href="https://instagram.com/nib_and_nosh"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 text-blue-300 hover:text-white transition-colors text-sm"
             >
               <Instagram className="w-4 h-4" />
-              @nibnoshcafe
+              @nib_and_nosh
             </a>
           </div>
 
@@ -67,8 +67,8 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-blue-400 shrink-0" />
-                <a href="tel:+919876543210" className="text-blue-200 hover:text-white transition-colors text-sm">
-                  +91 98765 43210
+                <a href="tel:+919986088681" className="text-blue-200 hover:text-white transition-colors text-sm">
+                  +91 99860 88681
                 </a>
               </li>
             </ul>

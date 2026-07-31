@@ -62,10 +62,6 @@ export default function About({ onNavigate }: AboutProps) {
                 alt="Nib & Nosh courtyard"
                 className="rounded-2xl w-full h-80 object-cover shadow-lg"
               />
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-lg border border-blue-50">
-                <p className="font-serif text-2xl font-bold text-blue-700">2+</p>
-                <p className="text-gray-500 text-sm">Years of Joy</p>
-              </div>
               <div className="absolute -top-5 -right-5 bg-blue-600 rounded-2xl p-4 shadow-lg">
                 <p className="font-serif text-2xl font-bold text-white">100%</p>
                 <p className="text-blue-200 text-sm">Vegetarian</p>
