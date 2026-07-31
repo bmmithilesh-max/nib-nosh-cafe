@@ -52,7 +52,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/WhatsApp%20Image%202026-07-31%20at%201.03.28%20PM.jpeg"
+            src="/images/WhatsApp%20Image%202026-07-31%20at%201.32.21%20PM%20(1).jpeg"
             alt="Nib & Nosh Cafe"
             className="w-full h-full object-cover"
           />
