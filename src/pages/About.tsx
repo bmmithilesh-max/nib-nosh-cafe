@@ -102,7 +102,7 @@ export default function About({ onNavigate }: AboutProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <img src="/images/WhatsApp%20Image%202026-07-29%20at%201.12.50%20PM.jpeg" alt="Cafe interior evening" className="rounded-2xl w-full h-64 object-cover" />
             <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.16.46%20PM.jpeg" alt="Outdoor courtyard" className="rounded-2xl w-full h-64 object-cover" />
-            <img src="/images/unnamed_(2).webp" alt="Food at Nib & Nosh" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.44.35%20PM.jpeg" alt="Food at Nib & Nosh" className="rounded-2xl w-full h-64 object-cover" />
           </div>
         </div>
       </section>

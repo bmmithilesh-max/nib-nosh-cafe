@@ -29,8 +29,8 @@ const highlights = [
 ];
 
 const galleryImages = [
-  { src: '/images/WhatsApp%20Image%202026-07-29%20at%201.12.50%20PM.jpeg', alt: 'Nib & Nosh cafe interior with blue chairs' },
-  { src: '/images/unnamed_(2).webp', alt: 'Creamy pasta served at Nib & Nosh' },
+  { src: '/images/WhatsApp%20Image%202026-07-31%20at%201.03.29%20PM.jpeg', alt: 'Nib & Nosh cafe interior with blue chairs' },
+  { src: '/images/WhatsApp%20Image%202026-07-31%20at%201.03.29%20PM%20(1).jpeg', alt: 'Creamy pasta served at Nib & Nosh' },
   { src: '/images/WhatsApp%20Image%202026-07-29%20at%2012.44.35%20PM.jpeg', alt: 'Cafe courtyard with the signature tree' },
 ];
 
@@ -52,7 +52,7 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/WhatsApp%20Image%202026-07-29%20at%201.12.50%20PM.jpeg"
+            src="/images/WhatsApp%20Image%202026-07-31%20at%201.03.28%20PM.jpeg"
             alt="Nib & Nosh Cafe"
             className="w-full h-full object-cover"
           />
