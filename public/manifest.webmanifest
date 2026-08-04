@@ -1,0 +1,19 @@
+{
+  "name": "Nib & Nosh Cafe",
+  "short_name": "Nib & Nosh",
+  "description": "100% vegetarian cafe in Rajajinagar, Bengaluru. Wraps, burgers, waffles, ice-cream sundaes & gourmet coffee in a cozy semi-outdoor courtyard.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

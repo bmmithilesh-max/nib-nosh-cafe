@@ -1,6 +1,12 @@
 import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
+import { usePageMeta } from '../lib/seo';
 
 export default function Location() {
+  usePageMeta(
+    'Location & Contact | Nib & Nosh Cafe',
+    'Visit Nib & Nosh Cafe at No.59, 13th Main Road, 2nd Block, Rajajinagar, Bengaluru 560010. Open daily 12–10 PM. Call +91 99860 88681.'
+  );
+
   return (
     <div className="pt-20 min-h-screen bg-cream-50">
       {/* Header */}

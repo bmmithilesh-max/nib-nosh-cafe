@@ -40,7 +40,8 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           <div>
             <h3 className="font-serif text-lg font-semibold mb-4 text-white">Quick Links</h3>
-            <ul className="space-y-2">
+            <nav aria-label="Footer quick links">
+              <ul className="space-y-2">
               {(['menu', 'about', 'location'] as Page[]).map((page) => (
                 <li key={page}>
                   <button
@@ -52,6 +53,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </li>
               ))}
             </ul>
+            </nav>
           </div>
 
           <div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageMeta } from '../lib/seo';
 
 type Category =
   | 'all'
@@ -260,6 +261,11 @@ const filterTabs: { id: Category; label: string }[] = [
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState<Category>('all');
 
+  usePageMeta(
+    'Menu | Nib & Nosh Cafe',
+    'Explore the full menu at Nib & Nosh Cafe in Rajajinagar — 100% vegetarian wraps, burgers, waffles, ice-cream sundaes, milkshakes and specialty coffee.'
+  );
+
   const visibleSections = activeCategory === 'all'
     ? menuData
     : activeCategory === 'beverages'
@@ -271,7 +277,7 @@ export default function Menu() {
       {/* Header */}
       <div className="bg-blue-800 py-16 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.44.35%20PM.jpeg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.44.35%20PM.jpeg" alt="" loading="lazy" decoding="async" width={1920} height={400} className="w-full h-full object-cover" />
         </div>
         <div className="relative">
           <p className="text-blue-300 text-sm font-medium uppercase tracking-widest mb-2">Nib & Nosh</p>

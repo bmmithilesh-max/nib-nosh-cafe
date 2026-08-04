@@ -1,4 +1,5 @@
 import { ArrowRight, Star, Music, Calendar, Utensils, Coffee, Gamepad2, ChevronRight } from 'lucide-react';
+import { usePageMeta } from '../lib/seo';
 import type { Page } from '../types';
 
 interface HomeProps {
@@ -41,6 +42,11 @@ const reviews = [
 ];
 
 export default function Home({ onNavigate }: HomeProps) {
+  usePageMeta(
+    'Nib & Nosh Cafe | 100% Vegetarian Cafe in Rajajinagar, Bengaluru',
+    '100% vegetarian cafe in Rajajinagar, Bengaluru. Wraps, burgers, pasta, waffles, ice-cream sundaes & gourmet coffee in a cozy semi-outdoor courtyard. Eat. Drink. Play.'
+  );
+
   const navigate = (page: Page) => {
     onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -54,7 +60,11 @@ export default function Home({ onNavigate }: HomeProps) {
           <img
             src="/images/WhatsApp%20Image%202026-07-31%20at%201.32.21%20PM%20(1).jpeg"
             alt="Nib & Nosh Cafe"
+            width={1600}
+            height={900}
             className="w-full h-full object-cover"
+            fetchpriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-blue-900/60 to-blue-800/30" />
         </div>
@@ -148,16 +158,28 @@ export default function Home({ onNavigate }: HomeProps) {
               <img
                 src={galleryImages[0].src}
                 alt={galleryImages[0].alt}
+                width={1200}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl object-cover w-full h-56 col-span-2"
               />
               <img
                 src={galleryImages[1].src}
                 alt={galleryImages[1].alt}
+                width={800}
+                height={500}
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl object-cover w-full h-44"
               />
               <img
                 src={galleryImages[2].src}
                 alt={galleryImages[2].alt}
+                width={800}
+                height={500}
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl object-cover w-full h-44"
               />
             </div>

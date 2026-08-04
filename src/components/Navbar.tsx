@@ -35,7 +35,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         scrolled || open ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm shadow-sm'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
         <div className="flex items-center justify-between h-16 lg:h-18">
           <button onClick={() => handleNav('home')} className="flex items-center gap-2.5 group">
             <CafeLogo size={44} className="shrink-0 drop-shadow-sm group-hover:scale-105 transition-transform duration-200" />
@@ -53,6 +53,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               <li key={page}>
                 <button
                   onClick={() => handleNav(page)}
+                  aria-current={currentPage === page ? 'page' : undefined}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     currentPage === page
                       ? 'bg-blue-600 text-white'
@@ -69,6 +70,8 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             className="lg:hidden p-2 rounded-lg text-blue-700 hover:bg-blue-50 transition-colors"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -76,12 +79,13 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-white border-t border-blue-50 px-4 pb-4 pt-2">
+        <div id="mobile-menu" className="lg:hidden bg-white border-t border-blue-50 px-4 pb-4 pt-2">
           <ul className="flex flex-col gap-1">
             {navLinks.map(({ label, page }) => (
               <li key={page}>
                 <button
                   onClick={() => handleNav(page)}
+                  aria-current={currentPage === page ? 'page' : undefined}
                   className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                     currentPage === page
                       ? 'bg-blue-600 text-white'

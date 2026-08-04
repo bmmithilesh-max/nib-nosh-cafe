@@ -1,4 +1,5 @@
 import { Heart, Leaf, Music, Users } from 'lucide-react';
+import { usePageMeta } from '../lib/seo';
 import type { Page } from '../types';
 
 interface AboutProps {
@@ -13,6 +14,11 @@ const values = [
 ];
 
 export default function About({ onNavigate }: AboutProps) {
+  usePageMeta(
+    'Our Story | Nib & Nosh Cafe',
+    'Discover the story behind Nib & Nosh Cafe in Rajajinagar, Bengaluru — a cozy 100% vegetarian cafe built for friends, families and good times.'
+  );
+
   return (
     <div className="pt-20 min-h-screen">
       {/* Hero */}
@@ -20,7 +26,11 @@ export default function About({ onNavigate }: AboutProps) {
         <img
           src="/images/WhatsApp%20Image%202026-07-29%20at%201.12.50%20PM.jpeg"
           alt="Nib & Nosh Cafe interior"
+          width={1920}
+          height={768}
           className="w-full h-full object-cover"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 to-blue-900/80" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
@@ -60,6 +70,10 @@ export default function About({ onNavigate }: AboutProps) {
               <img
                 src="/images/WhatsApp%20Image%202026-07-29%20at%2012.16.46%20PM.jpeg"
                 alt="Nib & Nosh courtyard"
+                width={800}
+                height={640}
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl w-full h-80 object-cover shadow-lg"
               />
               <div className="absolute -top-5 -right-5 bg-blue-600 rounded-2xl p-4 shadow-lg">
@@ -100,9 +114,9 @@ export default function About({ onNavigate }: AboutProps) {
             <h2 className="section-title">A Glimpse of Nib & Nosh</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <img src="/images/WhatsApp%20Image%202026-07-31%20at%201.03.29%20PM%20(1).jpeg" alt="Cafe interior evening" className="rounded-2xl w-full h-64 object-cover" />
-            <img src="/images/WhatsApp%20Image%202026-07-31%20at%201.03.29%20PM.jpeg" alt="Outdoor courtyard" className="rounded-2xl w-full h-64 object-cover" />
-            <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.16.46%20PM.jpeg" alt="Food at Nib & Nosh" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/WhatsApp%20Image%202026-07-31%20at%201.03.29%20PM%20(1).jpeg" alt="Cafe interior evening" width={800} height={512} loading="lazy" decoding="async" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/WhatsApp%20Image%202026-07-31%20at%201.03.29%20PM.jpeg" alt="Outdoor courtyard" width={800} height={512} loading="lazy" decoding="async" className="rounded-2xl w-full h-64 object-cover" />
+            <img src="/images/WhatsApp%20Image%202026-07-29%20at%2012.16.46%20PM.jpeg" alt="Food at Nib & Nosh" width={800} height={512} loading="lazy" decoding="async" className="rounded-2xl w-full h-64 object-cover" />
           </div>
         </div>
       </section>
