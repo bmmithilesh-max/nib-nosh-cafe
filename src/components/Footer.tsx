@@ -1,17 +1,8 @@
 import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import CafeLogo from './CafeLogo';
-import type { Page } from '../types';
 
-interface FooterProps {
-  onNavigate: (page: Page) => void;
-}
-
-export default function Footer({ onNavigate }: FooterProps) {
-  const nav = (page: Page) => {
-    onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer() {
   return (
     <footer className="bg-blue-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -42,17 +33,22 @@ export default function Footer({ onNavigate }: FooterProps) {
             <h3 className="font-serif text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <nav aria-label="Footer quick links">
               <ul className="space-y-2">
-              {(['menu', 'about', 'location'] as Page[]).map((page) => (
-                <li key={page}>
-                  <button
-                    onClick={() => nav(page)}
-                    className="text-blue-200 hover:text-white transition-colors text-sm capitalize"
-                  >
-                    {page.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
-                  </button>
-                </li>
-              ))}
-            </ul>
+                {[
+                  { label: 'Menu', to: '/menu' },
+                  { label: 'About', to: '/about' },
+                  { label: 'Location', to: '/location' },
+                  { label: 'Contact', to: '/contact' },
+                ].map(({ label, to }) => (
+                  <li key={to}>
+                    <Link
+                      to={to}
+                      className="text-blue-200 hover:text-white transition-colors text-sm capitalize"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </nav>
           </div>
 

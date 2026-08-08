@@ -263,7 +263,8 @@ export default function Menu() {
 
   usePageMeta(
     'Menu | Nib & Nosh Cafe',
-    'Explore the full menu at Nib & Nosh Cafe in Rajajinagar — 100% vegetarian wraps, burgers, waffles, ice-cream sundaes, milkshakes and specialty coffee.'
+    'Explore the full menu at Nib & Nosh Cafe in Rajajinagar — 100% vegetarian wraps, burgers, waffles, ice-cream sundaes, milkshakes and specialty coffee.',
+    '/menu'
   );
 
   const visibleSections = activeCategory === 'all'

@@ -1,10 +1,6 @@
 import { Heart, Leaf, Music, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { usePageMeta } from '../lib/seo';
-import type { Page } from '../types';
-
-interface AboutProps {
-  onNavigate: (page: Page) => void;
-}
 
 const values = [
   { icon: Heart, title: 'Made with Love', desc: 'Every dish is crafted with care, using fresh ingredients and family-inspired recipes that keep our guests coming back.' },
@@ -13,10 +9,11 @@ const values = [
   { icon: Users, title: 'For Everyone', desc: 'From solo visits and date nights to birthday parties and corporate gatherings — Nib & Nosh is for every occasion.' },
 ];
 
-export default function About({ onNavigate }: AboutProps) {
+export default function About() {
   usePageMeta(
     'Our Story | Nib & Nosh Cafe',
-    'Discover the story behind Nib & Nosh Cafe in Rajajinagar, Bengaluru — a cozy 100% vegetarian cafe built for friends, families and good times.'
+    'Discover the story behind Nib & Nosh Cafe in Rajajinagar, Bengaluru — a cozy 100% vegetarian cafe built for friends, families and good times.',
+    '/about'
   );
 
   return (
@@ -127,12 +124,12 @@ export default function About({ onNavigate }: AboutProps) {
           <h2 className="font-serif text-3xl font-bold text-white mb-3">Come Visit Us!</h2>
           <p className="text-blue-200 mb-6">No 59, 13, 19th Main Rd, 2nd Block, Rajajinagar, Bengaluru</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => { onNavigate('location'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            <Link
+              to="/location"
               className="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors"
             >
               Get Directions
-            </button>
+            </Link>
           </div>
         </div>
       </section>

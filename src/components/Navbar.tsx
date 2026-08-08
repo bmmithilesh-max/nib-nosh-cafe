@@ -1,33 +1,22 @@
 import { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import CafeLogo from './CafeLogo';
-import type { Page } from '../types';
 
-interface NavbarProps {
-  currentPage: Page;
-  onNavigate: (page: Page) => void;
-}
-
-const navLinks: { label: string; page: Page }[] = [
-  { label: 'Home', page: 'home' },
-  { label: 'Menu', page: 'menu' },
-  { label: 'About', page: 'about' },
-  { label: 'Location', page: 'location' },
+const navLinks: { label: string; to: string }[] = [
+  { label: 'Home', to: '/' },
+  { label: 'Menu', to: '/menu' },
+  { label: 'About', to: '/about' },
+  { label: 'Location', to: '/location' },
 ];
 
-export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   if (typeof window !== 'undefined') {
     window.onscroll = () => setScrolled(window.scrollY > 20);
   }
-
-  const handleNav = (page: Page) => {
-    onNavigate(page);
-    setOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <header
@@ -37,7 +26,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary navigation">
         <div className="flex items-center justify-between h-16 lg:h-18">
-          <button onClick={() => handleNav('home')} className="flex items-center gap-2.5 group">
+          <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5 group">
             <CafeLogo size={44} className="shrink-0 drop-shadow-sm group-hover:scale-105 transition-transform duration-200" />
             <div className="leading-none hidden sm:block">
               <span className="font-serif text-lg font-bold text-blue-800 block">Nib & Nosh</span>
@@ -46,22 +35,24 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             <span className="hidden xl:block ml-4 pl-4 border-l border-blue-100 text-xs font-medium text-blue-400 tracking-wide">
               Good Food, Good Vibes, Great Time
             </span>
-          </button>
+          </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
-            {navLinks.map(({ label, page }) => (
-              <li key={page}>
-                <button
-                  onClick={() => handleNav(page)}
-                  aria-current={currentPage === page ? 'page' : undefined}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    currentPage === page
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'
-                  }`}
+            {navLinks.map(({ label, to }) => (
+              <li key={to}>
+                <NavLink
+                  to={to}
+                  end={to === '/'}
+                  className={({ isActive }) =>
+                    `px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      isActive
+                        ? 'bg-blue-600 text-white'
+                        : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'
+                    }`
+                  }
                 >
                   {label}
-                </button>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -81,19 +72,22 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
       {open && (
         <div id="mobile-menu" className="lg:hidden bg-white border-t border-blue-50 px-4 pb-4 pt-2">
           <ul className="flex flex-col gap-1">
-            {navLinks.map(({ label, page }) => (
-              <li key={page}>
-                <button
-                  onClick={() => handleNav(page)}
-                  aria-current={currentPage === page ? 'page' : undefined}
-                  className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    currentPage === page
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'
-                  }`}
+            {navLinks.map(({ label, to }) => (
+              <li key={to}>
+                <NavLink
+                  to={to}
+                  end={to === '/'}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      isActive
+                        ? 'bg-blue-600 text-white'
+                        : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'
+                    }`
+                  }
                 >
                   {label}
-                </button>
+                </NavLink>
               </li>
             ))}
           </ul>

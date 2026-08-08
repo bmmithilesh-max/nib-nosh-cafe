@@ -1,10 +1,6 @@
 import { ArrowRight, Star, Music, Calendar, Utensils, Coffee, Gamepad2, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { usePageMeta } from '../lib/seo';
-import type { Page } from '../types';
-
-interface HomeProps {
-  onNavigate: (page: Page) => void;
-}
 
 const highlights = [
   {
@@ -41,16 +37,12 @@ const reviews = [
   { name: 'Sneha K.', rating: 5, text: 'Great place for a party booking. The team was super responsive and the outdoor garden setting is gorgeous.' },
 ];
 
-export default function Home({ onNavigate }: HomeProps) {
+export default function Home() {
   usePageMeta(
     'Nib & Nosh Cafe | 100% Vegetarian Cafe in Rajajinagar, Bengaluru',
-    '100% vegetarian cafe in Rajajinagar, Bengaluru. Wraps, burgers, pasta, waffles, ice-cream sundaes & gourmet coffee in a cozy semi-outdoor courtyard. Eat. Drink. Play.'
+    '100% vegetarian cafe in Rajajinagar, Bengaluru. Wraps, burgers, pasta, waffles, ice-cream sundaes & gourmet coffee in a cozy semi-outdoor courtyard. Eat. Drink. Play.',
+    '/'
   );
-
-  const navigate = (page: Page) => {
-    onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <div>
@@ -81,20 +73,20 @@ export default function Home({ onNavigate }: HomeProps) {
               Your neighbourhood haven for great food, cool drinks, and soulful music. Eat. Drink. Play.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button
-                onClick={() => navigate('menu')}
+              <Link
+                to="/menu"
                 className="btn-primary flex items-center gap-2"
               >
                 View Menu
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => navigate('location')}
+              </Link>
+              <Link
+                to="/location"
                 className="btn-outline border-white text-white hover:bg-white hover:text-blue-800 flex items-center gap-2"
               >
                 Find Us
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -147,12 +139,12 @@ export default function Home({ onNavigate }: HomeProps) {
               <p className="text-gray-500 leading-relaxed mb-6">
                 Nestled beneath a beautiful open-sky glass roof with a majestic tree at the centre, Nib & Nosh blends the freshness of the outdoors with the comfort of a cozy cafe. Blue chairs, warm lights, and good company make every visit memorable.
               </p>
-              <button
-                onClick={() => navigate('about')}
+              <Link
+                to="/about"
                 className="btn-outline flex items-center gap-2 w-fit"
               >
                 Our Story <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
             <div className="md:w-3/5 grid grid-cols-2 gap-3">
               <img
@@ -197,13 +189,13 @@ export default function Home({ onNavigate }: HomeProps) {
                 Wraps, Burgers, Waffles,<br />Ice-Cream & More
               </h2>
             </div>
-            <button
-              onClick={() => navigate('menu')}
+            <Link
+              to="/menu"
               className="shrink-0 bg-white text-blue-700 px-7 py-3.5 rounded-xl font-semibold hover:bg-blue-50 transition-colors flex items-center gap-2 shadow-sm"
             >
               Explore Full Menu
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -240,12 +232,12 @@ export default function Home({ onNavigate }: HomeProps) {
             Whether it's a quiet date, a birthday party, or a casual get-together, we have something special for every occasion.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button onClick={() => navigate('menu')} className="btn-primary">
+            <Link to="/menu" className="btn-primary">
               View Menu
-            </button>
-            <button onClick={() => navigate('location')} className="btn-outline">
+            </Link>
+            <Link to="/location" className="btn-outline">
               Get Directions
-            </button>
+            </Link>
           </div>
         </div>
       </section>

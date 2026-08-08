@@ -1,9 +1,3 @@
-export type Page =
-  | 'home'
-  | 'menu'
-  | 'about'
-  | 'location';
-
 export interface JammingEvent {
   id: string;
   title: string;

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!assets/|images/|sitemap\\.xml|robots\\.txt|manifest\\.webmanifest).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
